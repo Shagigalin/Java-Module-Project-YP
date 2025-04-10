@@ -1,8 +1,8 @@
 
      import java.util.Scanner;
      class  Car {
-        private  String name;
-         private int speed;
+        String name;
+         int speed;
 
          public Car(String name, int speed) {
              this.name = name;
