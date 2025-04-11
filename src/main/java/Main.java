@@ -1,6 +1,6 @@
 
      import java.util.Scanner;
-     class  Car {
+     import java.util.InputMismatchException;     class   Car {
         String name;
          int speed;
 
@@ -40,12 +40,17 @@
 
                     while (true) {
                         System.out.println("Введите скорость машины №" + (i + 1) + " (должна быть > 0 и <= 250):");
-                        carSpeed = scanner.nextInt();
+                        try {
+                            carSpeed = scanner.nextInt();
 
-                        if (carSpeed > 0 && carSpeed <= 250) {
-                            break;
-                        } else {
-                            System.out.println("Ошибка: скорость должна быть > 0 и <= 250. Попробуйте снова.");
+                            if (carSpeed > 0 && carSpeed <= 250) {
+                                break;
+                            } else {
+                                System.out.println("Ошибка: скорость должна быть > 0 и <= 250. Попробуйте снова.");
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Ошибка: введено некорректное значение. Пожалуйста, введите целое число.");
+                            scanner.next();
                         }
                     }
 
